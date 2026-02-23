@@ -356,8 +356,7 @@ Collection.prototype.getOrCreate = function (identifier, position) {
             return self.createNipple(position, identifier);
         }
 
-        // eslint-disable-next-line no-console
-        console.warn('Coudln\'t find the needed nipple.');
+        console.warn('Couldn\'t find the needed nipple.');
         return false;
     }
     // In dynamic, we create a new one.
@@ -382,7 +381,6 @@ Collection.prototype.processOnMove = function (evt) {
     if (!nipple) {
         // This is here just for safety.
         // It shouldn't happen.
-        // eslint-disable-next-line no-console
         console.error('Found zombie joystick with ID ' + identifier);
         self.manager.removeIdentifier(identifier);
         return;
@@ -596,7 +594,7 @@ Collection.prototype.destroy = function () {
 
     // Clean 3DTouch intervals.
     for (var i in self.pressureIntervals) {
-        if (self.pressureIntervals.hasOwnProperty(i)) {
+        if (Object.hasOwn(self.pressureIntervals, i)) {
             clearInterval(self.pressureIntervals[i]);
         }
     }
