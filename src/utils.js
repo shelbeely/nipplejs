@@ -114,7 +114,7 @@ export const applyPosition = (el, pos) => {
 export const getTransitionStyle = (property, values, time) => {
     const obj = configStylePropertyObject(property);
     for (let i in obj) {
-        if (obj.hasOwnProperty(i)) {
+        if (Object.hasOwn(obj, i)) {
             if (typeof values === 'string') {
                 obj[i] = values + ' ' + time;
             } else {
@@ -132,7 +132,7 @@ export const getTransitionStyle = (property, values, time) => {
 export const getVendorStyle = (property, value) => {
     const obj = configStylePropertyObject(property);
     for (let i in obj) {
-        if (obj.hasOwnProperty(i)) {
+        if (Object.hasOwn(obj, i)) {
             obj[i] = value;
         }
     }
@@ -151,7 +151,7 @@ export const configStylePropertyObject = (prop) => {
 
 export const extend = (objA, objB) => {
     for (let i in objB) {
-        if (objB.hasOwnProperty(i)) {
+        if (Object.hasOwn(objB, i)) {
             objA[i] = objB[i];
         }
     }
@@ -162,9 +162,9 @@ export const extend = (objA, objB) => {
 export const safeExtend = (objA, objB) => {
     const obj = {};
     for (let i in objA) {
-        if (objA.hasOwnProperty(i) && objB.hasOwnProperty(i)) {
+        if (Object.hasOwn(objA, i) && Object.hasOwn(objB, i)) {
             obj[i] = objB[i];
-        } else if (objA.hasOwnProperty(i)) {
+        } else if (Object.hasOwn(objA, i)) {
             obj[i] = objA[i];
         }
     }

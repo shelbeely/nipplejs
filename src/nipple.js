@@ -148,7 +148,7 @@ Nipple.prototype.stylize = function () {
 Nipple.prototype.applyStyles = function (styles) {
     // Apply styles
     for (var i in this.ui) {
-        if (this.ui.hasOwnProperty(i)) {
+        if (Object.hasOwn(this.ui, i)) {
             for (var j in styles[i]) {
                 this.ui[i].style[j] = styles[i][j];
             }
@@ -366,7 +366,7 @@ Nipple.prototype.computeDirection = function (obj) {
         var oldDirection = {};
         var i;
         for (i in this.direction) {
-            if (this.direction.hasOwnProperty(i)) {
+            if (Object.hasOwn(this.direction, i)) {
                 oldDirection[i] = this.direction[i];
             }
         }
